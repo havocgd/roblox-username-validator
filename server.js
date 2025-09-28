@@ -10,13 +10,13 @@ app.use(cors());
 const cacheFile = "rejected.json";
 let rejected = new Set();
 
-// Load cache on startup
+// Load rejected usernames on startup
 if (fs.existsSync(cacheFile)) {
   try {
     const data = JSON.parse(fs.readFileSync(cacheFile));
     rejected = new Set(data);
   } catch (err) {
-    console.error("Failed to load cache:", err);
+    console.error("Failed to load rejected cache:", err);
   }
 }
 
